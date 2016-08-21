@@ -38,3 +38,8 @@ As previously stated, have MongoDB running in the background and then:
 2. Run `node keystone.js`
 
 Go to http://localhost:3000 in your browser to view the site
+
+
+## References
+
+1. [KeystoneJS](http://keystonejs.com/)
