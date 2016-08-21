@@ -16,7 +16,7 @@ Download and install the items listed below
 
 ### Dealing with Environment Variables
 
-Environment variables are loaded by dotenv package. This means a `.env` file must be in root directory of the repository.  A proper `CLOUDINARY_URL` environment variable is required to use Gallery.
+Environment variables are loaded by [dotenv](https://www.npmjs.com/package/dotenv) package. This means a `.env` file must be in root directory of the repository.  A proper `CLOUDINARY_URL` environment variable is required to use Gallery.
 
 1. Run `touch .env`
 2. Open `.env` with your text editor and place in necessary variables
@@ -39,7 +39,14 @@ As previously stated, have MongoDB running in the background and then:
 
 Go to http://localhost:3000 in your browser to view the site
 
+## Deploy to Heroku
+
+While on master branch `git push heroku master`.
+If remote is not yet added, run:
+
+`git remote add heroku https://git.heroku.com/<YOUR-HEROKU-APP-NAME>.git`
 
 ## References
 
-1. [KeystoneJS](http://keystonejs.com/)
+1. [KeystoneJS Documentation](http://keystonejs.com/docs/)
+2. Here's a good set of [deployment instructions](http://www.infocinc.com/blog/deploy-keystonejs-to-heroku/)
