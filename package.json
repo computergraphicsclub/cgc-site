@@ -11,7 +11,7 @@
     "node-sass": "^3.3.2",
     "node-sass-middleware": "^0.9.7",
     "dotenv": "^2.0.0",
-    "three": "^0.79.0",
+    "three": "^0.79.0"
   },
   "devDependencies": {
     "eslint": "^2.12.0",
@@ -28,7 +28,7 @@
     "start": "node keystone.js"
   },
   "engine" :{
-    "node": "^5.10.0",
-    "npm" : "^3.8.3"
-  },
+    "node": "5.10.0",
+    "npm" : "3.8.3"
+  }
 }

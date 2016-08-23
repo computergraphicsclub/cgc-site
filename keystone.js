@@ -23,7 +23,7 @@ keystone.init({
 	'user model': 'Member',
 
 	'cookie secret': process.env.COOKIE_SECRET || 'cgc',
-	'cloudinary config': process.env.CLOUDINARY_URL //|| 'cloudinary://00000:fake@fake'
+	'cloudinary config': process.env.CLOUDINARY_URL || 'cloudinary://00000:fake@fake'
 });
 keystone.import('models');
 keystone.set('locals', {
