@@ -46,7 +46,6 @@ If remote is not yet added, run:
 
 `git remote add heroku https://git.heroku.com/<YOUR-HEROKU-APP-NAME>.git`
 
-
 ## References
 
 1. [KeystoneJS Documentation](http://keystonejs.com/docs/)

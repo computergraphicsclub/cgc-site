@@ -1,0 +1,35 @@
+extends ../layouts/default
+
+mixin translate(html)
+  - var preview = html
+  p !{preview}
+
+block content
+  .container
+    .jumbotron  
+
+      if data.about
+        //- p= data.about
+        
+        h1 Who We Are 
+          +translate(data.about.whoWeAre)
+          
+        h1 What we Do
+          +translate(data.about.whatWeDo)
+          
+        h1 Our Board
+          +translate(data.about.ourBoard)
+          each member in data.about.board
+            p= member.name
+        
+        if(data.about.faculty.length > 1)
+          h1 Our Faculty Advisers
+        else
+          h1 Our Faculty Adviser
+          
+        +translate(data.about.ourFaculty)
+        
+        if(data.about.ourSponsors != '')
+          h1 Our Sponsors
+          +translate(data.about.ourSponsors)
+          +translate(data.about.sponsorsList)

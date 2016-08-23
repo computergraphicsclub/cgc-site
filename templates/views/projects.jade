@@ -1,0 +1,47 @@
+extends ../layouts/default
+
+mixin translate(html)
+  - var preview = html
+  p !{preview}
+
+mixin project(project)
+  a(href='/projects/' + project.slug)
+    .project(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
+      .project-text
+        h1= project.name
+        +translate(project.preview)
+      if !project.main
+        p There is no Gallery!
+      
+        
+    
+block intro
+  .container
+      h1= data.projects ? data.projects.status: 'Projects'
+      
+block content
+  .container
+    .jumbotron  
+      if data.active.results == ''
+        .project
+         p There are no active projects! Oh No!
+      else
+        each project in data.active.results
+            +project(project)
+            
+          
+      if data.idle.results == ''
+        .project
+          p There are no idle projects! Yay us!
+      else
+        each project in data.idle.results
+            +project(project)
+          
+      
+      if data.complete.results == ''
+        .project
+          p There are no complete projects! This can't be happening!
+      else
+        each project in data.complete.results
+            +project(project)
+        
