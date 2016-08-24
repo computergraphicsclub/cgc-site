@@ -25,10 +25,10 @@ Page.add(
   'Team or Hosts', {
     members:  {type: Types.Relationship, ref: 'Member', many: true },
   },
-  'Related' , {
-    codes:    {type: Types.Relationship, ref: 'Code', many: true },
-    tags:     { type: Types.Relationship, ref: 'Tag', many: true }
-  },
+  // 'Related' , {
+  //   codes:    {type: Types.Relationship, ref: 'Code', many: true },
+  //   tags:     { type: Types.Relationship, ref: 'Tag', many: true }
+  // },
   'Meta', {
     createdAt:  { type: Types.Datetime, noedit: true },
     createdBy:  { type: Types.Relationship, ref: 'Member', many: false, noedit: true },

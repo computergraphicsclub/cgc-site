@@ -27,8 +27,8 @@ About.add(
   },
   'Additional', {
     gallery:  { type: Types.Relationship, ref: 'Gallery' },
-    codes:    { type: Types.Relationship, ref: 'Code' },
-    tags:     { type: Types.Relationship, ref: 'Tag' },
+    // codes:    { type: Types.Relationship, ref: 'Code' },
+    // tags:     { type: Types.Relationship, ref: 'Tag' },
   }
 );
 
