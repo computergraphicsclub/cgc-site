@@ -21,10 +21,10 @@ PagePost.add(
     preview: {type: Types.Html, wysiwyg: true, height: 150 },
     html: { type: Types.Html, wysiwyg: true, height: 400 },
     markdown: { type: Types.Markdown },
-  },
-  {
-    tags: { type: Types.Relationship, ref: 'Tag', many: true},
   }
+  // {
+  //   tags: { type: Types.Relationship, ref: 'Tag', many: true},
+  // }
 )
 
 PagePost.schema.methods.isPublished = function() {

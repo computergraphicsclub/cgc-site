@@ -11,15 +11,13 @@ exports = module.exports = function(req, res, next){
     slug: req.params.page,
   };
   locals.data = {
-    project: [],
+    projectpage: [],
     updates: [],
   }
 
 
   // Load the project from Project model
 	view.on('init', function (next) {
-
-    // console.log("The Slug is: " + locals.filters.slug)
 
 		var projectQuery = keystone.list('Project').model.findOne({
 			state: 'published',
@@ -33,7 +31,7 @@ exports = module.exports = function(req, res, next){
       .populate('tags')
 
 		.exec(function (err, result) {
-			locals.data.project = result;
+			locals.data.projectpage = result;
       if( result != null ){ projectID = result._doc._id }
       // console.log("ProjectQuery" + result)
 			next(err);
@@ -54,5 +52,5 @@ exports = module.exports = function(req, res, next){
 		});
   })
 
-  view.render('project_page');
+  view.render('projectpage');
 };

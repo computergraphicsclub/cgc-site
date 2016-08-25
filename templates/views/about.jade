@@ -1,8 +1,7 @@
 extends ../layouts/default
 
-mixin translate(html)
-  - var preview = html
-  p !{preview}
+block vars
+  - var title = "CGC | About"
 
 block content
   .container

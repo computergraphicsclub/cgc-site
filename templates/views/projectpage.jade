@@ -1,31 +1,34 @@
 extends ../layouts/default
 
+block vars
+  - var title = "CGC | "+ data.projectpage.name
+
 block css
   style
-    include= data.project.codes.css
+    //- include= data.projectpage.codes.css
 
 block content
   .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-0.col-lg-12.col-lg-offset-0
       .container
-        //- p= data.project.codes
+        //- p= data.projectpage.codes
         //- p= data.updates    
         .img-responsive
-          if !data.project.main
+          if !data.projectpage.main
             p No Gallery!
           else
-            //- img(src= data.project.main.heroImage.url)
-            +carousel(data.project.main)
+            //- img(src= data.projectpage.main.heroImage.url)
+            +carousel(data.projectpage.main)
       //- .title
-      //-   h1= data.project.name
+      //-   h1= data.projectpage.name
       
     .container 
       .description: .col-lg-6
         h1 About this project
-        +p(data.project.full)
+        +p(data.projectpage.full)
       .document:  .col-lg-6
         h1 Documentation
-        if data.project.document
-          +p(data.project.document.preview)
+        if data.projectpage.document
+          +p(data.projectpage.document.preview)
         else
           h5 There is no documentation yet! Sorry!
         
@@ -33,17 +36,17 @@ block content
       .team:  .col-lg-12
           h1 The Team
           .team-profile  
-            each member in data.project.members
+            each member in data.projectpage.members
               .member: .col-sm-3.col-md-2.col-lg-2
                 .img-responsive
                   //todo Create logic for loading Image
-                  img(src= data.project.main.heroImage.url)
+                  // img(src= data.projectpage.main.heroImage.url)
                 .member-text
                   p= member.name.first+' '+member.name.last
                   
-    +p(data.project.codes.jade)
+    //- +p(data.projectpage.codes.jade)
     
     
 block js
-  include= data.project.codes.javascript
+  // include= data.projectpage.codes.javascript
                   
