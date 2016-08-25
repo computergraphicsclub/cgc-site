@@ -1,11 +1,7 @@
 extends ../layouts/default
 
-mixin pet(name)
-  li.pet= name
-
-mixin event(event)
-  .event(data-ks-editable=editable(user, { list: 'Project', id: event.id }))
-    h2: a(href='/events/' + event.slug)= event.name
+block vars
+  - var title = "CGC | Events"
     
 block intro
   .container
@@ -13,17 +9,16 @@ block intro
       
 block content
   .container
-    .jumbotron  
-      if data.upcoming.results == ''
-        p There are no upcoming events!
-      else
-        h1 Upcoming
-        each event in data.upcoming.results
-          +event(event)
-      
-      if data.past.results == ''
-        p There are no past events!
-      else
-        h1 Past
-        each event in data.past.results
-          +event(event)
+    h1 Upcoming 
+    if data.upcoming.results == ''
+      p There are no upcoming events!
+    else
+      each event in data.upcoming.results
+        +listEvents(event)
+    
+    h1 Past
+    if data.past.results == ''
+      p There are no past events!
+    else
+      each event in data.past.results
+        +listEvents(event)

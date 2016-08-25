@@ -1,0 +1,12 @@
+mixin listEvents(event)
+  .event(data-ks-editable=editable(user, { list: 'Event', id: event.id }))
+    h2: a(href='/events/' + event.slug)= event.name
+    
+mixin listProjects(project)
+  a(href='/projects/' + project.slug)
+    .project(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
+      .project-text
+        h1= project.name
+        +p(project.preview)
+      if !project.main
+        p There is no Gallery!

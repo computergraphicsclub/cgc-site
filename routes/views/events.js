@@ -23,12 +23,13 @@ exports = module.exports = function (req, res) {
       perPage: 10,
       maxPages: 10,
     })
-      .where('state', 'draft')
+      .where('state', 'published')
       .where('timeAndDate').gte(Date.now())
 			.sort('timeAndDate')
 
       query.exec(function (err, results){
         locals.data.upcoming = results;
+        console.log(results);
         next(err);
       })
   })
@@ -40,15 +41,16 @@ exports = module.exports = function (req, res) {
       perPage: 10,
       maxPages: 10,
       filter: {
-        state: 'draft',
+        state: 'published',
       }
     })
-      .where('state', 'draft')
+      .where('state', 'published')
       .where('timeAndDate').lt(Date.now())  //
 			.sort(-'timeAndDate')
 
       query.exec(function (err, results){
         locals.data.past = results;
+        console.log(results);
         next(err);
       })
   })

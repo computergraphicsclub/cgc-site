@@ -13,7 +13,7 @@ exports = module.exports = function(req, res, next){
     // update: req.params.update
   };
   locals.data = {
-    pages: [],
+    eventpage: [],
     updates: [],
   }
 
@@ -32,7 +32,7 @@ view.on('init', function (next) {
     .populate('tags')
 
   .exec(function (err, result) {
-    locals.data.pages = result;
+    locals.data.eventpage = result;
     if( result != null ){ eventID = result._doc._id }
     // console.log("ProjectQuery" + result)
     next(err);
@@ -53,5 +53,5 @@ view.on('init', function (next) {
 		});
   })
 
-  view.render('event_page');
+  view.render('eventpage');
 };
