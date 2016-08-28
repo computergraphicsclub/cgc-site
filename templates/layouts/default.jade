@@ -46,7 +46,7 @@ html
 			//- Customise your site's navigation by changing the navLinks Array in ./routes/middleware.js
 			//- ... or completely change this header to suit your design.
 
-			div(role="navigation").navbar.navbar-default
+			div(role="navigation").navbar.navbar-inverse
 				.container-fluid
 					.navbar-header
 						button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
@@ -54,7 +54,8 @@ html
 							span.icon-bar
 							span.icon-bar
 							span.icon-bar
-						a.navbar-brand(href='/') Computer Graphics Club
+						a.navbar-brand(href='/')
+							img.img-responsive(src='/put-your-logo.here' alt='Computer Graphics Club')
 					.collapse.navbar-collapse
 						ul.nav.navbar-nav.navbar-left
 							each link in navLinks
