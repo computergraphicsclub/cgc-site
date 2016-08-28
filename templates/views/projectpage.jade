@@ -9,18 +9,24 @@ block css
 
 block content
   .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-0.col-lg-12.col-lg-offset-0
-      .container
-        //- p= data.projectpage.codes
-        //- p= data.updates    
-        .img-responsive
-          if !data.projectpage.main
-            p No Gallery!
-          else
-            //- img(src= data.projectpage.main.heroImage.url)
-            +carousel(data.projectpage.main)
-      //- .title
-      //-   h1= data.projectpage.name
+      if !data.projectpage.main
+        //- Check for a main Gallery
+        p No Gallery!
       
+      if data.projectpage.images
+        //- Create a carousel if multiple images in Gallery
+        +carousel(data.projectpage.main)
+      
+      else
+        //- Load image if only one image is in Gallery
+        +image(data.projectpage.main.heroImage.url)
+        
+      if data.projectpage.subs
+        h2 Other Galleries
+        each gallery in data.projectpage.subs
+          a(href="#"+gallery.key+"" data-toggle="modal"): +thumbnail(gallery.images[0].url)
+          +modalcarousel(gallery)
+                  
     .container 
       .description: .col-lg-6
         h1 About this project
@@ -42,10 +48,7 @@ block content
                   //todo Create logic for loading Image
                   // img(src= data.projectpage.main.heroImage.url)
                 .member-text
-                  p= member.name.first+' '+member.name.last
-                  
-    //- +p(data.projectpage.codes.jade)
-    
+                  p= member.name.first+' '+member.name.last    
     
 block js
   // include= data.projectpage.codes.javascript
