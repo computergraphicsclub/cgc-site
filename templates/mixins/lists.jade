@@ -3,10 +3,16 @@ mixin listEvents(event)
     h2: a(href='/events/' + event.slug)= event.name
     
 mixin listProjects(project)
-  a(href='/projects/' + project.slug)
-    .project(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
-      .project-text
-        h1= project.name
-        +p(project.preview)
-      if !project.main
-        p There is no Gallery!
+  .media
+    .media-left.media-middle
+      a(href="/projects/"+project.slug)
+        if project.main
+          img.media-object(src=project.main.heroImage.url, alt='' style='max-height: 128px')
+        else
+          img.media-object(src='/favicon.ico', alt='' style='max-height: 128px')
+    .media-body
+      a(href="/projects/"+project.slug)
+        h3= project.name
+        p= project.preview
+    .media-right.media-top(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
+      h3= project.status

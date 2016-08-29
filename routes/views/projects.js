@@ -31,6 +31,7 @@ exports = module.exports = function (req, res) {
       }
     }).where('state', 'published')  //only published projects can be seen
 			.where('status', 'active')
+			.populate('main')
       .exec(function (err, results){
         locals.data.active = results;
         next(err);
