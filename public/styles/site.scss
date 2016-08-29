@@ -14,6 +14,8 @@
 
 @import "site/variables";
 
+$bodyBgn        : #5e6061;
+
 $bgDefault      : #aabbcc;
 $bgHighlight    : darken($bgDefault, 5%);
 $colDefault     : lighten($bgDefault, 25%);
@@ -137,4 +139,42 @@ header {
       > a, > a:hover, > a:focus, {
         color: $colHighlight;
         background-color: $bgHighlight; }}}
+}
+
+body {
+  background: {
+    color: $bodyBgn;
+  }
+
+  .jumbotron {
+    background: {
+      color: $bodyBgn;
+    }
+  }
+
+  .media {
+
+    background: {
+      color: darken($bodyBgn, 20%);
+    }
+
+    .media-body{
+      padding: 5px;
+       a {
+         color: white;
+         font-family: Chivo;
+         text-decoration: none;
+          p {
+            font-size: 16px;
+          }
+       }
+    }
+  }
+}
+
+#page-title {
+  font: {
+    family: 'Open Sans';
+  }
+  color: white;
 }
