@@ -14,6 +14,11 @@
 
 @import "site/variables";
 
+$bgDefault      : #aabbcc;
+$bgHighlight    : darken($bgDefault, 5%);
+$colDefault     : lighten($bgDefault, 25%);
+$colHighlight   : white;
+
 
 // Site Styles
 // ===========
@@ -27,4 +32,109 @@
 
 .modal.fade.and.carousel.slide {
   position: absolute;
+}
+
+body {
+    padding-top: 60px;
+}
+
+header {
+    height: 40px;
+    position: fixed;
+    top: 0;
+    transition: top 0.5s ease-in-out;
+    width: 100%;
+}
+
+.nav-up {
+    top: -60px;
+}
+
+// .navbar.navbar-default{
+//   background: {
+//     color: $navbarColor;
+//   }
+//
+//   &:hover {
+//     transition: 0.8s ease-in-out;
+//     background: {
+//       color: darken($navbarColor, 5%);
+//     }
+//   }
+// }
+//
+// a.navbar-brand {
+//   img.img-responsive {
+//     color: white;
+//   }
+// }
+//
+// ul.nav.navbar-nav.navbar-left {
+//   li {
+//     &:hover {
+//       transition: 0.9s ease-in-out;
+//       background: {
+//         color: lighten($navbarColor, 20%);
+//       }
+//     }
+//   }
+//
+//   a {
+//       color: white;
+//   }
+// }
+
+.navbar-default{
+  font: {
+    family: Open Sans;
+    size: 16x;
+  }
+  background-color: $bgDefault;
+  border: {
+    radius: 0px;
+    color: $bgHighlight;
+  }
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default.navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
 }
