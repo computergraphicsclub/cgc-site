@@ -48,5 +48,13 @@ If remote is not yet added, run:
 
 ## References
 
+### KeystoneJS and Heroku
 1. [KeystoneJS Documentation](http://keystonejs.com/docs/)
 2. Here's a good set of [deployment instructions](http://www.infocinc.com/blog/deploy-keystonejs-to-heroku/)
+
+
+### Jade, Sass, Bootstrap, and JS stuff
+
+1. [Jaded](https://github.com/jdcauley/jaded)
+2. [Hidden Navbar](https://medium.com/@mariusc23/hide-header-on-scroll-down-show-on-scroll-up-67bbaae9a78c#.k9h6s2u0r)
+3. [Fonts](http://www.cssfontstack.com/Web-Fonts)
