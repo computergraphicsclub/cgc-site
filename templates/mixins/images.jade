@@ -40,7 +40,8 @@ mixin carousel(gallery)
       else
         +loadActive(gallery.images[0])
         each image in gallery.images
-          +loadImage(image)
+          .stuff
+            +loadImage(image)
           
       if !gallery.images
         h1 Gallery has images

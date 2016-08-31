@@ -37,7 +37,7 @@ $colHighlight   : white;
 }
 
 body {
-    padding-top: 60px;
+    padding-top: 50px;
 }
 
 header {
@@ -49,7 +49,7 @@ header {
 }
 
 .nav-up {
-    top: -60px;
+    top: -50px;
 }
 
 // .navbar.navbar-default{
@@ -177,4 +177,9 @@ body {
     family: 'Open Sans';
   }
   color: white;
+}
+
+.carousel-inner{
+  width:100%;
+  max-height: 40em !important;
 }
