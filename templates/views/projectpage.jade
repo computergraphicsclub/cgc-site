@@ -8,25 +8,25 @@ block css
     //- include= data.projectpage.codes.css
 
 block content
-  .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-0.col-lg-12.col-lg-offset-0
-      if !data.projectpage.main
-        //- Check for a main Gallery
-        p No Gallery!
-      
-      if data.projectpage.images
-        //- Create a carousel if multiple images in Gallery
-        +carousel(data.projectpage.main)
-      
-      else
-        //- Load image if only one image is in Gallery
-        +image(data.projectpage.main.heroImage.url)
-        
-      if data.projectpage.subs
-        h2 Other Galleries
-        each gallery in data.projectpage.subs
-          a(href="#"+gallery.key+"" data-toggle="modal"): +thumbnail(gallery.images[0].url)
-          +modalcarousel(gallery)
+  if !data.projectpage.main
+    //- Check for a main Gallery
+    p No Gallery!
+  
+  if !data.projectpage.images
+    //- Create a carousel if multiple images in Gallery
+    +carousel(data.projectpage.main)
+  
+  else
+    //- Load image if only one image is in Gallery
+    +image(data.projectpage.main.heroImage.url)                  
                   
+  .container: .row: .col-sm-10.col-sm-offset-1.col-md-8.col-md-offset-0.col-lg-12.col-lg-offset-0
+    if data.projectpage.subs
+      h2 Other Galleries
+      each gallery in data.projectpage.subs
+        a(href="#"+gallery.key+"" data-toggle="modal"): +thumbnail(gallery.images[0].url)
+        +modalcarousel(gallery)
+    
     .container 
       .description: .col-lg-6
         h1 About this project
