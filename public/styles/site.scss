@@ -50,41 +50,11 @@ header {
 
 .nav-up {
     top: -50px;
+    z-index: 2;
 }
-
-// .navbar.navbar-default{
-//   background: {
-//     color: $navbarColor;
-//   }
-//
-//   &:hover {
-//     transition: 0.8s ease-in-out;
-//     background: {
-//       color: darken($navbarColor, 5%);
-//     }
-//   }
-// }
-//
-// a.navbar-brand {
-//   img.img-responsive {
-//     color: white;
-//   }
-// }
-//
-// ul.nav.navbar-nav.navbar-left {
-//   li {
-//     &:hover {
-//       transition: 0.9s ease-in-out;
-//       background: {
-//         color: lighten($navbarColor, 20%);
-//       }
-//     }
-//   }
-//
-//   a {
-//       color: white;
-//   }
-// }
+.nav-down {
+    z-index: 2;
+}
 
 .navbar-default{
   font: {
@@ -186,4 +156,25 @@ body {
 
 .membername {
   color: white
+}
+
+.welcome-text {
+    position: relative;
+    z-index: 1;
+}
+
+.embed-responsive.embed-responsive {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+@media screen and (max-device-width : 320px)
+{
+  .navbar-brand {
+    font-size: 16px;
+  }
 }
