@@ -5,7 +5,7 @@ block vars
     
 block intro
   .container
-      h1= data.events ? data.events.status: 'Events'
+      h1.text-center(id='page-title' style="padding: 25px")=  data.events ? data.events.status: 'Events'
       
 block content
   .container

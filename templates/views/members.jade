@@ -3,9 +3,14 @@ extends ../layouts/default
 block vars
   - var title = "CGC | Members"
 
+block intro
+  .container
+      h1.text-center(id='page-title' style="padding: 25px") Members
+
 block content
   .container
     .jumbotron  
       each member in data.members.results
-        h6= member.name.first+' '+member.name.last
-        p= member.username
+        //- h6= member.name.first+' '+member.name.last
+        //- p= member.username
+        +listMembers(member)
