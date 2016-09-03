@@ -31,17 +31,9 @@ mixin carousel(gallery)
         li(data-target="#"+gallery.key+"", data-slide-to= index)
     
     .carousel-inner
-      if gallery.heroImage
-        +loadActive(gallery.heroImage)
-        each image, index in gallery.images
-          if index===0
-          else
-            +loadImage(image)
-      else
-        +loadActive(gallery.images[0])
-        each image in gallery.images
-          .stuff
-            +loadImage(image)
+      +loadActive(gallery.heroImage)
+      each image, index in gallery.images
+        +loadImage(image)
           
       if !gallery.images
         h1 Gallery has images
@@ -60,17 +52,9 @@ mixin modalcarousel(gallery)
           li(data-target="#"+gallery.key+"", data-slide-to= index)
 
       .carousel-inner
-        if gallery.heroImage
-          +loadActive(gallery.images[0])
-          each image, index in gallery.images
-            if index===0
-              console.log('do nothing')
-            else
-              +loadImage(image)
-        else
-          +loadActive(gallery.heroImage)
-          each image in gallery.images
-            +loadImage(image)
+        +loadActive(gallery.images[0])
+        each image, index in gallery.images
+          +loadImage(image)
             
       a.left.carousel-control(href="#"+gallery.key+"" role="button" data-slide="prev")
         span.icon-prev
