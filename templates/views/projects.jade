@@ -5,7 +5,7 @@ block vars
     
 block intro
   .container
-      h1= data.projects ? data.projects.status: 'Projects'
+      h1.text-center(id='page-title' style="padding: 25px")= data.projects ? data.projects.status: 'Projects'
       
 block content
   .container
@@ -32,4 +32,4 @@ block content
       else
         each project in data.complete.results
             +listProjects(project)
-        
+      

@@ -22,7 +22,7 @@ exports = module.exports = function (req, res) {
 
   view.on('init', function(next){
 
-    var q = keystone.list('Project').paginate({
+    var activeQuery = keystone.list('Project').paginate({
       page: req.query.page || 1,
       perPage: 10,
       maxPages: 10,
@@ -31,8 +31,10 @@ exports = module.exports = function (req, res) {
       }
     }).where('state', 'published')  //only published projects can be seen
 			.where('status', 'active')
+			.populate('main')
       .exec(function (err, results){
         locals.data.active = results;
+				console.log(results);
         next(err);
       });
 
@@ -40,7 +42,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function(next){
 
-    var q = keystone.list('Project').paginate({
+    var idleQuery = keystone.list('Project').paginate({
       page: req.query.page || 1,
       perPage: 10,
       maxPages: 10,
@@ -49,8 +51,10 @@ exports = module.exports = function (req, res) {
       }
     }).where('state', 'published')  //only published projects can be seen
 			.where('status', 'idle')
+			.populate('main')
       .exec(function (err, results){
         locals.data.idle = results;
+				console.log(results);
         next(err);
       });
 
@@ -58,7 +62,7 @@ exports = module.exports = function (req, res) {
 
 	view.on('init', function(next){
 
-    var q = keystone.list('Project').paginate({
+    var completeQuery = keystone.list('Project').paginate({
       page: req.query.page || 1,
       perPage: 10,
       maxPages: 10,
@@ -67,8 +71,10 @@ exports = module.exports = function (req, res) {
       }
     }).where('state', 'published')  //only published projects can be seen
 			.where('status', 'complete')
+			.populate('main')
       .exec(function (err, results){
         locals.data.complete = results;
+				console.log(results);
         next(err);
       });
 

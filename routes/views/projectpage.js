@@ -24,6 +24,7 @@ exports = module.exports = function(req, res, next){
 			slug: locals.filters.slug,
 		})
       .populate('main')
+      .populate('subs')
       .populate('additional')
       .populate('document', null, {state: 'published'}) // if !published, do not populate doc
       .populate('members', 'name')
@@ -33,7 +34,7 @@ exports = module.exports = function(req, res, next){
 		.exec(function (err, result) {
 			locals.data.projectpage = result;
       if( result != null ){ projectID = result._doc._id }
-      // console.log("ProjectQuery" + result)
+      console.log("ProjectQuery" + result)
 			next(err);
 		});
 	});

@@ -1,0 +1,62 @@
+mixin image(path)
+  .row: .col-sm-12
+    img.img-responsive( src= path )
+    
+mixin thumbnail(path)
+  .col-xs-6.col-sm-3.col-md-4.col-lg-2
+    img.img-thumbnail( src= path )
+    
+mixin thumbnailgallery(gallery)
+  .container
+    .row
+      each image in gallery.images
+        +thumbnail(image.url)
+
+mixin loadActive(heroImage)
+  .item.active
+    +image(heroImage.url)
+    .carousel-caption
+
+mixin loadImage(image)
+  .item
+    +image(image.url)
+    .carousel-caption
+
+mixin carousel(gallery)
+
+  .carousel.slide(id=""+gallery.key+"")
+    ol.carousel-indicators
+      li.active(data-target="#"+gallery.key+"", data-slide-to="0")
+      each image, index in gallery.images
+        li(data-target="#"+gallery.key+"", data-slide-to= index)
+    
+    .carousel-inner
+      +loadActive(gallery.heroImage)
+      each image, index in gallery.images
+        +loadImage(image)
+          
+      if !gallery.images
+        h1 Gallery has images
+            
+    a.left.carousel-control(href="#"+gallery.key+"", data-slide="prev")
+      span.icon-prev
+    a.right.carousel-control(href="#"+gallery.key+"", data-slide="next")
+      span.icon-next
+      
+mixin modalcarousel(gallery)
+  .modal.fade.and.carousel.slide(id=""+gallery.key+"")
+    .modal-dialogue: .modal-content: modal-body
+      ol.carousel-indicators
+        li.active(data-target="#"+gallery.key+"", data-slide-to="0")
+        each image, index in gallery.images
+          li(data-target="#"+gallery.key+"", data-slide-to= index)
+
+      .carousel-inner
+        +loadActive(gallery.images[0])
+        each image, index in gallery.images
+          +loadImage(image)
+            
+      a.left.carousel-control(href="#"+gallery.key+"" role="button" data-slide="prev")
+        span.icon-prev
+      a.right.carousel-control(href="#"+gallery.key+"" role="button" data-slide="next")
+        span.icon-next

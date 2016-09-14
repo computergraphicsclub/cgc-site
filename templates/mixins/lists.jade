@@ -1,12 +1,42 @@
+mixin listDate(timeAndDate)
+  h3= timeAndDate
+    
 mixin listEvents(event)
-  .event(data-ks-editable=editable(user, { list: 'Event', id: event.id }))
-    h2: a(href='/events/' + event.slug)= event.name
+  .media
+    .media-left.media-middle
+      a(href="/events/"+event.slug)
+        if event.main
+          //- img.media-object(sr c=event.main.heroImage.url, alt='' style='max-height: 128px')
+        else
+          img.media-object(src='/favicon.ico', alt='' style='max-height: 128px')
+    .media-body
+      a(href="/events/"+event.slug)
+        h3= event.name
+        p= event.preview
+    .media-right.media-top(data-ks-editable=editable(user, { list: 'Event', id: event.id }))
+      +listDate(event.timeAndDate)
     
 mixin listProjects(project)
-  a(href='/projects/' + project.slug)
-    .project(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
-      .project-text
-        h1= project.name
-        +p(project.preview)
-      if !project.main
-        p There is no Gallery!
+  .media
+    .media-left.media-middle
+      a(href="/projects/"+project.slug)
+        if project.main
+          img.media-object(src=project.main.heroImage.url, alt='' style='max-height: 128px')
+        else
+          img.media-object(src='/favicon.ico', alt='' style='max-height: 128px')
+    .media-body
+      a(href="/projects/"+project.slug)
+        h3= project.name
+        p= project.preview
+    .media-right.media-top(data-ks-editable=editable(user, { list: 'Project', id: project.id }))
+      h3= project.status
+      
+mixin listMembers(member)
+  .col-lg-3
+    .media
+      .media-top.media-middle
+        img.img-responsive.media-object(src='/favicon.ico', alt='' style='height: 128px')
+      .media-body.media-middle
+        p.membername= member.name.first+' '+member.name.last
+      .media-bottom.media-middle
+        p how are you?

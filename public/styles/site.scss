@@ -14,9 +14,176 @@
 
 @import "site/variables";
 
+$bodyBgn        : #000000;
+
+$bgDefault      : #aabbcc;
+$bgHighlight    : darken($bgDefault, 5%);
+$colDefault     : lighten($bgDefault, 25%);
+$colHighlight   : white;
+
 
 // Site Styles
 // ===========
 
 // Add your own site style includes here
 @import "site/layout";
+
+.modal.and.carousel {
+  position: absolute;
+}
+
+.modal.fade.and.carousel.slide {
+  position: absolute;
+}
+
+body {
+    padding-top: 50px;
+}
+
+header {
+    height: 40px;
+    position: fixed;
+    top: 0;
+    transition: top 0.5s ease-in-out;
+    width: 100%;
+}
+
+.nav-up {
+    top: -50px;
+    z-index: 2;
+}
+.nav-down {
+    z-index: 2;
+}
+
+.navbar-default{
+  font: {
+    family: Open Sans;
+    size: 16x;
+  }
+  background-color: $bgDefault;
+  border: {
+    radius: 0px;
+    color: $bgHighlight;
+  }
+  .navbar-brand {
+    color: $colDefault;
+    &:hover, &:focus {
+      color: $colHighlight; }}
+  .navbar-text {
+    color: $colDefault; }
+  .navbar-nav {
+    > li {
+      > a {
+        color: $colDefault;
+        &:hover,  &:focus {
+          color: $colHighlight; }}}
+    > .active {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}
+    > .open {
+      > a, > a:hover, > a:focus {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+  .navbar-toggle {
+    border-color: $bgHighlight;
+    &:hover, &:focus {
+      background-color: $bgHighlight; }
+    .icon-bar {
+      background-color: $colDefault; }}
+  .navbar-collapse,
+  .navbar-form {
+    border-color: $colDefault; }
+  .navbar-link {
+    color: $colDefault;
+    &:hover {
+      color: $colHighlight; }}}
+@media (max-width: 767px) {
+  .navbar-default.navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: $colDefault;
+      &:hover, &:focus {
+        color: $colHighlight; }}
+    > .active {
+      > a, > a:hover, > a:focus, {
+        color: $colHighlight;
+        background-color: $bgHighlight; }}}
+}
+
+body {
+  background: {
+    color: $bodyBgn;
+  }
+
+  .jumbotron {
+    background: {
+      color: $bodyBgn;
+    }
+  }
+
+  .media {
+
+    background: {
+      color: darken($bodyBgn, 20%);
+    }
+
+    .media-body{
+      padding: 5px;
+       a {
+         color: white;
+         font-family: Chivo;
+         text-decoration: none;
+          p {
+            font-size: 16px;
+          }
+       }
+    }
+  }
+}
+
+#page-title {
+  font: {
+    family: 'Open Sans';
+    size: 64px;
+  }
+  color: white;
+}
+
+.carousel-inner{
+  width:100%;
+  max-height: 40em !important;
+}
+
+.membername {
+  color: white
+}
+
+.welcome-text {
+    position: relative;
+    z-index: 1;
+}
+
+.embed-responsive.embed-responsive {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
+
+@media screen and (max-device-width : 320px)
+{
+  .navbar-brand {
+    font-size: 16px;
+  }
+}
+
+.vertical-center {
+  min-height: 100%;
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+}

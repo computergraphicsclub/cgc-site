@@ -1,5 +1,9 @@
 extends ../layouts/default
 
 block content
-	.container: .jumbotron
-		h1 Welcome to the Computer Graphics Club
+	section.welcome-container
+		.welcome-text.vertical-center.text-center(style='height: 400px; padding: 150px')
+			h1#page-title Coming Soon
+		.embed-responsive.embed-responsive
+			iframe.embed-responsive-item(src='/three')
+	
