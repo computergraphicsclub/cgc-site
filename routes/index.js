@@ -24,4 +24,5 @@ exports = module.exports = function (app) {
 	app.get('/projects/:page/documentation', routes.views.documents);
 	app.get('/events', routes.views.events);
 	app.get('/events/:page', routes.views.eventpage);
+	app.get('/three', routes.views.three);
 };
