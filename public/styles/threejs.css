@@ -1,0 +1,16 @@
+body { margin: 0; overflow: hidden; background-color: black; }
+canvas { width: 100%; height: 100%; position: absolute; }
+
+.welcome-text {
+    position: relative;
+    z-index: 1;
+}
+
+.embed-responsive.embed-responsive {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+}
