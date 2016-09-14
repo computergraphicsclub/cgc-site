@@ -14,7 +14,7 @@ function init() {
     camera.position.x  = -100;
 
     geometry = new THREE.BoxGeometry( 200, 200, 200 );
-    material = new THREE.MeshBasicMaterial( { color: 0x000080, wireframe: true } );
+    material = new THREE.MeshBasicMaterial( { color: 0xffffff, wireframe: true } );
 
     mesh = new THREE.Mesh( geometry, material );
     scene.add( mesh );
