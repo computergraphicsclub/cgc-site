@@ -55,4 +55,6 @@ keystone.set('nav', {
 	members: 'members',
 });
 
+keystone.set('headless', true);
+
 keystone.start();
